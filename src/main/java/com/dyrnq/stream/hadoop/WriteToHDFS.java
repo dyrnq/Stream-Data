@@ -17,13 +17,13 @@ public class WriteToHDFS {
 
         // 创建一个配置对象
         Configuration conf = new Configuration();
-        conf.set("dfs.replication","5");
+        conf.set("dfs.replication","2");
 
         // 获取与Hadoop文件系统的连接
         FileSystem fs = FileSystem.get(new URI(Constant.DEFAULT_FS),conf, Constant.USER);
 
         // 创建一个Path对象，指定要写入的文件路径
-        Path filePath = new Path("/path/to/file3.txt");
+        Path filePath = new Path("/path/to/file");
 
         // 创建输出流
         OutputStream outputStream = fs.create(filePath);
