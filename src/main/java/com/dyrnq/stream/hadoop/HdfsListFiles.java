@@ -1,5 +1,6 @@
 package com.dyrnq.stream.hadoop;
 
+import com.dyrnq.stream.Constant;
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.fs.FileStatus;
 import org.apache.hadoop.fs.FileSystem;

@@ -1,13 +1,13 @@
 package com.dyrnq.stream.hadoop;
+
+import com.dyrnq.stream.Constant;
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.fs.FileSystem;
 import org.apache.hadoop.fs.Path;
-import org.apache.hadoop.io.IOUtils;
 
 import java.io.BufferedWriter;
 import java.io.OutputStreamWriter;
 import java.net.URI;
-
 /**
  * HDFS 追加文字到文本中
  */

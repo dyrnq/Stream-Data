@@ -1,12 +1,10 @@
 package com.dyrnq.stream.hadoop;
 
+import com.dyrnq.stream.Constant;
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.fs.FileSystem;
 import org.apache.hadoop.fs.Path;
 
-/**
- * HDFS检测路径是文件还是目录
- */
 import java.net.URI;
 
 public class HdfsCheck {
