@@ -15,6 +15,7 @@
         <scala.version>2.12</scala.version>
         <spark.version>3.3.2</spark.version>
         <iceberg.version>1.2.0</iceberg.version>
+        <debezium.version>2.2.0.Final</debezium.version>
     </properties>
 
 
@@ -123,6 +124,53 @@
             <artifactId>spark-hive_${scala.version}</artifactId>
             <version>${spark.version}</version>
         </dependency>
+
+
+
+            <!-- Debezium core -->
+            <dependency>
+                <groupId>io.debezium</groupId>
+                <artifactId>debezium-core</artifactId>
+                <version>${debezium.version}</version>
+            </dependency>
+
+            <!-- Debezium MySQL connector -->
+            <dependency>
+                <groupId>io.debezium</groupId>
+                <artifactId>debezium-connector-mysql</artifactId>
+                <version>${debezium.version}</version>
+            </dependency>
+
+        <!-- https://mvnrepository.com/artifact/io.debezium/debezium-connector-jdbc -->
+        <dependency>
+            <groupId>io.debezium</groupId>
+            <artifactId>debezium-connector-jdbc</artifactId>
+            <version>${debezium.version}</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/io.debezium/debezium-connector-cassandra-4 -->
+        <dependency>
+            <groupId>io.debezium</groupId>
+            <artifactId>debezium-connector-cassandra-4</artifactId>
+            <version>${debezium.version}</version>
+        </dependency>
+
+
+
+        <!-- Debezium embedded -->
+        <dependency>
+            <groupId>io.debezium</groupId>
+            <artifactId>debezium-embedded</artifactId>
+            <version>${debezium.version}</version>
+        </dependency>
+
+            <!-- JSON processing (required for the JsonConverter class) -->
+<!--            <dependency>-->
+<!--                <groupId>com.fasterxml.jackson.core</groupId>-->
+<!--                <artifactId>jackson-databind</artifactId>-->
+<!--                <version>2.13.0</version>-->
+<!--            </dependency>-->
+
 
     </dependencies>
 
