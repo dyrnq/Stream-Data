@@ -155,6 +155,46 @@
             <version>${debezium.version}</version>
         </dependency>
 
+        <!-- https://mvnrepository.com/artifact/io.debezium/debezium-storage-redis -->
+        <dependency>
+            <groupId>io.debezium</groupId>
+            <artifactId>debezium-storage-redis</artifactId>
+            <version>${debezium.version}</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/io.debezium/debezium-storage-azure-blob -->
+        <dependency>
+            <groupId>io.debezium</groupId>
+            <artifactId>debezium-storage-azure-blob</artifactId>
+            <version>${debezium.version}</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/io.debezium/debezium-storage-azure-blob -->
+        <dependency>
+            <groupId>io.debezium</groupId>
+            <artifactId>debezium-storage-azure-blob</artifactId>
+            <version>${debezium.version}</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/io.debezium/debezium-storage-rocketmq -->
+        <dependency>
+            <groupId>io.debezium</groupId>
+            <artifactId>debezium-storage-rocketmq</artifactId>
+            <version>${debezium.version}</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/io.debezium/debezium-storage-file -->
+        <dependency>
+            <groupId>io.debezium</groupId>
+            <artifactId>debezium-storage-file</artifactId>
+            <version>${debezium.version}</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/io.debezium/debezium-storage-kafka -->
+        <dependency>
+            <groupId>io.debezium</groupId>
+            <artifactId>debezium-storage-kafka</artifactId>
+            <version>${debezium.version}</version>
+        </dependency>
+
 
 
         <!-- Debezium embedded -->
