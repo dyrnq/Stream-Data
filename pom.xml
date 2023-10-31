@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns="http://maven.apache.org/POM/4.0.0"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
@@ -14,8 +14,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <scala.version>2.12</scala.version>
         <spark.version>3.3.2</spark.version>
-        <iceberg.version>1.2.0</iceberg.version>
-        <debezium.version>2.2.0.Final</debezium.version>
+        <iceberg.version>1.4.0</iceberg.version>
     </properties>
 
 
@@ -55,6 +54,10 @@
                     <groupId>com.fasterxml.jackson.core</groupId>
                     <artifactId>*</artifactId>
                 </exclusion>
+                <exclusion>
+                    <groupId>org.apache.avro</groupId>
+                    <artifactId>*</artifactId>
+                </exclusion>
             </exclusions>
 
         </dependency>
@@ -88,6 +91,12 @@
                     <groupId>com.fasterxml.jackson.core</groupId>
                     <artifactId>*</artifactId>
                 </exclusion>
+
+                <exclusion>
+                    <groupId>org.apache.avro</groupId>
+                    <artifactId>*</artifactId>
+                </exclusion>
+
             </exclusions>
 
         </dependency>
@@ -105,12 +114,26 @@
             <version>${iceberg.version}</version>
         </dependency>
 
+        <!-- https://mvnrepository.com/artifact/org.apache.avro/avro-mapred -->
+        <dependency>
+            <groupId>org.apache.avro</groupId>
+            <artifactId>avro-mapred</artifactId>
+            <version>1.11.0</version>
+        </dependency>
 
 
         <dependency>
             <groupId>org.apache.spark</groupId>
             <artifactId>spark-core_${scala.version}</artifactId>
             <version>${spark.version}</version>
+            <exclusions>
+
+                <exclusion>
+                    <groupId>org.apache.avro</groupId>
+                    <artifactId>*</artifactId>
+                </exclusion>
+
+            </exclusions>
         </dependency>
 
         <dependency>
@@ -127,89 +150,12 @@
 
 
 
-            <!-- Debezium core -->
-            <dependency>
-                <groupId>io.debezium</groupId>
-                <artifactId>debezium-core</artifactId>
-                <version>${debezium.version}</version>
-            </dependency>
-
-            <!-- Debezium MySQL connector -->
-            <dependency>
-                <groupId>io.debezium</groupId>
-                <artifactId>debezium-connector-mysql</artifactId>
-                <version>${debezium.version}</version>
-            </dependency>
-
-        <!-- https://mvnrepository.com/artifact/io.debezium/debezium-connector-jdbc -->
-        <dependency>
-            <groupId>io.debezium</groupId>
-            <artifactId>debezium-connector-jdbc</artifactId>
-            <version>${debezium.version}</version>
-        </dependency>
-
-        <!-- https://mvnrepository.com/artifact/io.debezium/debezium-connector-cassandra-4 -->
-        <dependency>
-            <groupId>io.debezium</groupId>
-            <artifactId>debezium-connector-cassandra-4</artifactId>
-            <version>${debezium.version}</version>
-        </dependency>
-
-        <!-- https://mvnrepository.com/artifact/io.debezium/debezium-storage-redis -->
-        <dependency>
-            <groupId>io.debezium</groupId>
-            <artifactId>debezium-storage-redis</artifactId>
-            <version>${debezium.version}</version>
-        </dependency>
-
-        <!-- https://mvnrepository.com/artifact/io.debezium/debezium-storage-azure-blob -->
-        <dependency>
-            <groupId>io.debezium</groupId>
-            <artifactId>debezium-storage-azure-blob</artifactId>
-            <version>${debezium.version}</version>
-        </dependency>
-        <!-- https://mvnrepository.com/artifact/io.debezium/debezium-storage-azure-blob -->
-        <dependency>
-            <groupId>io.debezium</groupId>
-            <artifactId>debezium-storage-azure-blob</artifactId>
-            <version>${debezium.version}</version>
-        </dependency>
-
-        <!-- https://mvnrepository.com/artifact/io.debezium/debezium-storage-rocketmq -->
-        <dependency>
-            <groupId>io.debezium</groupId>
-            <artifactId>debezium-storage-rocketmq</artifactId>
-            <version>${debezium.version}</version>
-        </dependency>
-        <!-- https://mvnrepository.com/artifact/io.debezium/debezium-storage-file -->
-        <dependency>
-            <groupId>io.debezium</groupId>
-            <artifactId>debezium-storage-file</artifactId>
-            <version>${debezium.version}</version>
-        </dependency>
-
-        <!-- https://mvnrepository.com/artifact/io.debezium/debezium-storage-kafka -->
-        <dependency>
-            <groupId>io.debezium</groupId>
-            <artifactId>debezium-storage-kafka</artifactId>
-            <version>${debezium.version}</version>
-        </dependency>
-
-
-
-        <!-- Debezium embedded -->
-        <dependency>
-            <groupId>io.debezium</groupId>
-            <artifactId>debezium-embedded</artifactId>
-            <version>${debezium.version}</version>
-        </dependency>
-
-            <!-- JSON processing (required for the JsonConverter class) -->
-<!--            <dependency>-->
-<!--                <groupId>com.fasterxml.jackson.core</groupId>-->
-<!--                <artifactId>jackson-databind</artifactId>-->
-<!--                <version>2.13.0</version>-->
-<!--            </dependency>-->
+        <!-- JSON processing (required for the JsonConverter class) -->
+        <!--            <dependency>-->
+        <!--                <groupId>com.fasterxml.jackson.core</groupId>-->
+        <!--                <artifactId>jackson-databind</artifactId>-->
+        <!--                <version>2.13.0</version>-->
+        <!--            </dependency>-->
 
         <dependency>
             <groupId>org.apache.kafka</groupId>
@@ -225,12 +171,60 @@
         </dependency>
 
         <!-- https://mvnrepository.com/artifact/com.google.guava/guava -->
-<!--        <dependency>-->
-<!--            <groupId>com.google.guava</groupId>-->
-<!--            <artifactId>guava</artifactId>-->
-<!--            <version>32.0.0-jre</version>-->
-<!--        </dependency>-->
+        <!--        <dependency>-->
+        <!--            <groupId>com.google.guava</groupId>-->
+        <!--            <artifactId>guava</artifactId>-->
+        <!--            <version>32.0.0-jre</version>-->
+        <!--        </dependency>-->
+
+        <!-- https://mvnrepository.com/artifact/io.confluent/kafka-schema-registry-client -->
+        <dependency>
+            <groupId>io.confluent</groupId>
+            <artifactId>kafka-schema-registry-client</artifactId>
+            <version>7.5.1</version>
+        </dependency>
+
+
+
+        <!-- https://mvnrepository.com/artifact/io.confluent/kafka-avro-serializer -->
+        <dependency>
+            <groupId>io.confluent</groupId>
+            <artifactId>kafka-avro-serializer</artifactId>
+            <version>7.5.1</version>
+        </dependency>
+
 
     </dependencies>
+
+    <build>
+    <plugins>
+    <plugin>
+        <groupId>org.apache.avro</groupId>
+        <artifactId>avro-maven-plugin</artifactId>
+        <version>1.11.0</version>
+        <executions>
+            <execution>
+                <phase>generate-sources</phase>
+                <goals>
+                    <goal>schema</goal>
+                </goals>
+                <configuration>
+                    <sourceDirectory>${project.basedir}/src/main/avro/</sourceDirectory>
+                    <outputDirectory>${project.basedir}/src/main/java/</outputDirectory>
+                </configuration>
+            </execution>
+        </executions>
+    </plugin>
+        <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-compiler-plugin</artifactId>
+            <version>3.11.0</version>
+            <configuration>
+                <source>1.8</source>
+                <target>1.8</target>
+            </configuration>
+        </plugin>
+    </plugins>
+    </build>
 
 </project>
