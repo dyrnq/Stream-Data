@@ -194,6 +194,12 @@
         </dependency>
 
 
+        <dependency>
+            <groupId>com.github.f4b6a3</groupId>
+            <artifactId>tsid-creator</artifactId>
+            <version>5.2.6</version>
+        </dependency>
+
     </dependencies>
 
     <build>
